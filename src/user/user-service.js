@@ -48,10 +48,7 @@ const UserService = {
         .insert([
           { name: 'French', user_id },
         ], ['id'])
-
-      // when inserting words,
-      // we need to know the current sequence number
-      // so that we can set the `next` field of the linked language
+        
       const seq = await db
         .from('word_id_seq')
         .select('last_value')
