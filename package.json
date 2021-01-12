@@ -7,6 +7,7 @@
     "test": "mocha --require test/setup.js",
     "dev": "nodemon src/server.js",
     "migrate": "postgrator --config postgrator-config.js",
+    "migrate:test": "env NODE_ENV=test npm run migrate",
     "migrate:production": "heroku run npm run migrate",
     "start": "node src/server.js",
     "predeploy": "npm audit",
@@ -14,6 +15,9 @@
     "postdeploy": "npm run migrate:production"
   },
   "keywords": [],
+  "engines": {
+    "node": "12.18.3"
+  },
   "author": "Tom `tomatao` HT <tomht@thinkful.com>",
   "license": "MIT",
   "dependencies": {
@@ -33,8 +37,5 @@
     "mocha": "^8.2.1",
     "nodemon": "^1.18.9",
     "supertest": "^3.3.0"
-  },
-  "engines": {
-    "node": "12.18.3"
   }
 }
